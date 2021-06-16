@@ -3,7 +3,8 @@
 #include<sstream>
 #include<vector>
 #include<fstream>
-#include<string>
+
+#define MAX 1000
 
 //--- namespace --//
 using std::endl;
@@ -18,19 +19,26 @@ ifstream fin;
 //--- function prototypes --//
 void swapOh();
 //---- Global Var ---//
+char pieces[MAX];
 
 int main (){
 	string temp;
 	int n;
+	bool boardBuilt = false;
 
 	fin.open("input.txt");
 	// find first line which is number
 	if(fin.is_open()){
 		while(getline(fin,temp)){
-			cin << n;
-			while(!boardBuilt){
-				
-			}
+			n = temp.length();
+				for(int i = 0; i < n; i++) {
+					if(temp[i] == ' '){
+						continue;
+					}
+					pieces[i] = temp[i];
+					count++;
+					cout << pieces[i];
+				}
 		}
 	} else {
 		cout << "Error opening file.\n";
