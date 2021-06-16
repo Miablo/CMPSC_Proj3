@@ -15,7 +15,6 @@ using std::ifstream;
 
 //-- file input --//
 ifstream fin;
-
 //--- function prototypes --//
 void swapOh();
 //---- Global Var ---//
@@ -25,6 +24,7 @@ int main (){
 	string temp;
 	int n;
 	bool boardBuilt = false;
+	bool foundOh = false;
 
 	fin.open("input.txt");
 	// find first line which is number
@@ -34,14 +34,26 @@ int main (){
 				for(int i = 0; i < n; i++) {
 					if(temp[i] == ' '){
 						continue;
+					} else if (temp[i] == toupper('o')) {
+						cout << "found an O: " << temp[i] << endl;
+						for (int j = i; j < n-i; j++) {
+							if (temp[j+1] == toupper('x')) {
+								pieces[i] = 'X';
+								break;
+							}
+						}
+						pieces[i] = temp[i];
+					} else {
+						cout << "Found: " << temp[i] << endl;
+						pieces[i] = temp[i];
 					}
-					pieces[i] = temp[i];
-					count++;
-					cout << pieces[i];
+					 
+						//cout << pieces[i];
+					}
+					cout << endl;
 				}
-		}
-	} else {
-		cout << "Error opening file.\n";
+		} else {
+			cout << "Error opening file.\n";
 	}
 	// n x n 'board'
 	// if x print x if o
@@ -57,3 +69,7 @@ int main (){
 
 // check if surrounded by x
 // swapOh
+
+void swapOh() {
+
+}
