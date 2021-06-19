@@ -24,7 +24,6 @@ int main (){
 	string temp;
 	int n;
 	bool boardBuilt = false;
-	bool foundOh = false;
 
 	fin.open("input.txt");
 	// find first line which is number
@@ -35,20 +34,14 @@ int main (){
 					if(temp[i] == ' '){
 						continue;
 					} else if (temp[i] == toupper('o')) {
-						cout << "found an O: " << temp[i] << endl;
-						for (int j = i; j < n-i; j++) {
-							if (temp[j+1] == toupper('x')) {
-								pieces[i] = 'X';
-								break;
-							}
-						}
+						//cout << "found an O: " << temp[i] << endl;
 						pieces[i] = temp[i];
 					} else {
-						cout << "Found: " << temp[i] << endl;
+						//cout << "Found: " << temp[i] << endl;
 						pieces[i] = temp[i];
 					}
 					 
-						//cout << pieces[i];
+						cout << pieces[i];
 					}
 					cout << endl;
 				}
@@ -65,11 +58,3 @@ int main (){
 
 	return 0;
 } // end main 
-
-
-// check if surrounded by x
-// swapOh
-
-void swapOh() {
-
-}
