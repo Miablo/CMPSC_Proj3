@@ -15,8 +15,6 @@ using std::ifstream;
 
 //-- file input --//
 ifstream fin;
-//--- function prototypes --//
-void swapOh();
 //---- Global Var ---//
 char pieces[MAX];
 
