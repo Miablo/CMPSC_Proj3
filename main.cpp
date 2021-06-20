@@ -4,7 +4,7 @@
 #include<vector>
 #include<fstream>
 
-#define MAX 1000
+#define MAX 1
 
 //--- namespace --//
 using std::endl;
@@ -23,21 +23,20 @@ char pieces[MAX];
 int main (){
 	string temp;
 	int n;
-	bool boardBuilt = false;
 
 	fin.open("input.txt");
 	// find first line which is number
 	if(fin.is_open()){
 		while(getline(fin,temp)){
 			n = temp.length();
-				for(int i = 0; i < n; i++) {
-					if(temp[i] == ' '){
-						continue;
-					} else if (temp[i] == toupper('o')) {
-						//cout << "found an O: " << temp[i] << endl;
-						pieces[i] = temp[i];
+				for(int i = 1; i < n; i++) {
+				if (temp[i] == toupper('o')) {
+						if(i == 1 || i == n-1) {
+							pieces[i] = temp[i];
+						} else {
+							pieces[i] = 'X';
+						}
 					} else {
-						//cout << "Found: " << temp[i] << endl;
 						pieces[i] = temp[i];
 					}
 					 
